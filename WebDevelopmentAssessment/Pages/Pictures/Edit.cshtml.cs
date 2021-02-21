@@ -30,7 +30,7 @@ namespace WebDevelopmentAssessment.Pages.Pictures
                 return NotFound();
             }
 
-            Picture = await _context.Picture.FirstOrDefaultAsync(m => m.ID == id);
+            Picture = await _context.Pictures.FirstOrDefaultAsync(m => m.ID == id);
 
             if (Picture == null)
             {
@@ -71,7 +71,7 @@ namespace WebDevelopmentAssessment.Pages.Pictures
 
         private bool PictureExists(int id)
         {
-            return _context.Picture.Any(e => e.ID == id);
+            return _context.Pictures.Any(e => e.ID == id);
         }
     }
 }

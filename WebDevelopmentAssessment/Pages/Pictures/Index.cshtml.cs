@@ -23,7 +23,7 @@ namespace WebDevelopmentAssessment.Pages.Pictures
 
         public async Task OnGetAsync()
         {
-            Picture = await _context.Picture.ToListAsync();
+            Picture = await _context.Pictures.ToListAsync();
         }
     }
 }

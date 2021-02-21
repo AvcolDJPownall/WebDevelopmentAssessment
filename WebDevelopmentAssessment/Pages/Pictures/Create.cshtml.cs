@@ -36,7 +36,7 @@ namespace WebDevelopmentAssessment.Pages.Pictures
                 return Page();
             }
 
-            _context.Picture.Add(Picture);
+            _context.Pictures.Add(Picture);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
