@@ -7,7 +7,7 @@ namespace WebDevelopmentAssessment.Models
 {
     public class User
     {
-        public int ID;
-        public string UserName;
+        public int ID { get; set; }
+        public string UserName { get; set; }
     }
 }
