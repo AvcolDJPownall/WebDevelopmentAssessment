@@ -8,6 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using WebDevelopmentAssessment.Data;
 
 namespace WebDevelopmentAssessment
 {
@@ -24,6 +26,9 @@ namespace WebDevelopmentAssessment
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+
+            services.AddDbContext<WebContentContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("WebContentContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
