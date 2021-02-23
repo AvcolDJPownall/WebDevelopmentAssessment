@@ -9,6 +9,7 @@ namespace WebDevelopmentAssessment.Models
     public class Picture
     {
         public int ID { get; set; }
+        public string Title { get; set; }
         public string ImageURL { get; set; }
         public User Author { get; set; }
         public ICollection<Tag> Tags { get; set; }
