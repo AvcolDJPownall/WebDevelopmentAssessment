@@ -5,17 +5,25 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<head>
+    <title>Browse Images"</title>
+    <style type="text/css">
+        img {
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<h1>Browse</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    <a asp-page="Create">Submit an image</a>
 </p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Picture[0].ImageURL)
-            </th>
+                Found @Model.Picture.Count images
             <th></th>
         </tr>
     </thead>
@@ -23,7 +31,7 @@
 @foreach (var item in Model.Picture) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.ImageURL)
+                <img src="@item.ImageURL" width="128" height="128">
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
