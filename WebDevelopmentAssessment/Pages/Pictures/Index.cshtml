@@ -2,14 +2,18 @@
 @model WebDevelopmentAssessment.Pages.Pictures.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Browse Images";
 }
 
 <head>
-    <title>Browse Images"</title>
     <style type="text/css">
         img {
             border-radius: 50%;
+        }
+
+        .imgtitle {
+           font-style: oblique;
+           text-align: center;
         }
     </style>
 </head>
@@ -31,9 +35,12 @@
 @foreach (var item in Model.Picture) {
         <tr>
             <td>
+                <div class="imgtitle">
+                    <b>@item.Title</b>
+                </div>
                 <img src="@item.ImageURL" width="128" height="128">
             </td>
-            <td>
+            <td valign="bottom">
                 <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
                 <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
