@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
 using WebDevelopmentAssessment.Data;
 using WebDevelopmentAssessment.Models;
 
@@ -19,13 +20,15 @@ namespace WebDevelopmentAssessment.Pages.Pictures
             _context = context;
         }
 
-        public IActionResult OnGet()
+        public async Task OnGetAsync()
         {
-            return Page();
+            //return Page();
+            AllTags = await _context.Tags.ToListAsync();
         }
 
         [BindProperty]
         public Picture Picture { get; set; }
+        public IList<Tag> AllTags { get; set; }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.

@@ -27,7 +27,12 @@
             @Html.DisplayNameFor(model => model.Picture)
         </dt>
         <img src="@Model.Picture.ImageURL" height="256" width="256">
-
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Picture.Tags)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Picture.Tags)
+        </dd>
     </dl>
 </div>
 <div>

@@ -12,7 +12,7 @@ namespace WebDevelopmentAssessment.Models
         public int ID { get; set; }
         [StringLength(30, MinimumLength = 5)]
         public string Title { get; set; }
-        [RegularExpression("^http")]
+        [Url]
         [StringLength(64)]
         [Required]
         public string ImageURL { get; set; }

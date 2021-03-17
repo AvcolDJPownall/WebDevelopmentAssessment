@@ -27,7 +27,7 @@ namespace WebDevelopmentAssessment
             try
             {
                 var context = services.GetRequiredService<WebContentContext>();
-                context.Database.EnsureCreated();
+                DbInitializer.Initialize(context);
             }
             catch (Exception ex)
             {
