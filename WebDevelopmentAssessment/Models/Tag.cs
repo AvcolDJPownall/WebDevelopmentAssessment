@@ -8,7 +8,7 @@ namespace WebDevelopmentAssessment.Models
 {
     public class Tag
     {
-        [Key]
+        public int ID { get; set; }
         public string Text { get; set; }
     }
 }

@@ -31,8 +31,12 @@
             @Html.DisplayNameFor(model => model.Picture.Tags)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Picture.Tags)
+            @foreach (var tag in Model.Picture.Tags)
+            {
+                <b>@tag.Text</b>
+            }
         </dd>
+
     </dl>
 </div>
 <div>

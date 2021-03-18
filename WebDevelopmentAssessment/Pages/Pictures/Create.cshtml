@@ -23,10 +23,10 @@
                 <span asp-validation-for="Picture.ImageURL" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                @Html.ListBoxFor(model => Model.AllTags, new MultiSelectList(Model.AllTags.AsEnumerable(), "ID", "Text", Model.SelectedTags), "Tags")
             </div>
-            <div>
-                @Html.DropDownListFor(model => Model.AllTags, new SelectList(Model.AllTags.AsEnumerable(), "Text", "Text"), "Tags")
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>

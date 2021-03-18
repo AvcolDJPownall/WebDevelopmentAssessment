@@ -17,6 +17,7 @@ namespace WebDevelopmentAssessment.Models
         [Required]
         public string ImageURL { get; set; }
         public User Author { get; set; }
+        //[Required]
         public ICollection<Tag> Tags { get; set; }
     }
 }
