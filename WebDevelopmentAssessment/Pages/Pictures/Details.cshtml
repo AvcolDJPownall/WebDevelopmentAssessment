@@ -26,14 +26,18 @@
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Picture)
         </dt>
-        <img src="@Model.Picture.ImageURL" height="256" width="256">
+        <dd class="col-sm-10">
+            <img src="@Model.Picture.ImageURL" height="256" width="256">
+        </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Picture.Tags)
         </dt>
         <dd class="col-sm-10">
             @foreach (var tag in Model.Picture.Tags)
             {
-                <b>@tag.Text</b>
+                <ul>
+                    <li>@tag.Text</li>
+                </ul>
             }
         </dd>
 
