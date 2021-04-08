@@ -28,7 +28,11 @@ namespace WebDevelopmentAssessment.Pages.Pictures
                 return NotFound();
             }
 
-            Picture = await _context.Pictures.FirstOrDefaultAsync(m => m.ID == id);
+            Picture = await _context.Pictures
+                .Include(pic => pic.Tags)
+                //TODO: use .ThenInclude() for the user object
+                .AsNoTracking()
+                .FirstOrDefaultAsync(m => m.ID == id);
 
             if (Picture == null)
             {
