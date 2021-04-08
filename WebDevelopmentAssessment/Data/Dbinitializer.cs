@@ -14,12 +14,12 @@ namespace WebDevelopmentAssessment.Data
 
             if (context.Tags.Any()) return; // Only seed db once
 
-            string[] InitTags = new string[]
+            Tag[] InitTags = new Tag[]
             {
-                "HD",
-                "Cat",
-                "Dog",
-                "Public Domain"
+                new Tag{Text="HD"},
+                new Tag{Text="Cat"},
+                new Tag{Text="Dog"},
+                new Tag{Text="Public Domain"}
             };
 
             ICollection<Tag> GetRandomTags()
@@ -29,26 +29,24 @@ namespace WebDevelopmentAssessment.Data
                 int tagnum = rng.Next(0, 3);
 
                 var newtags = new List<Tag>();
-                var randtaglist = InitTags.OrderBy(rand => rng.Next());
+                var randtaglist = context.Tags.ToList().OrderBy(rand => rng.Next());
 
                 for (int i = 0; i < tagnum; i++)
                 {
-                    string randtag = randtaglist.ToArray()[i];
-                    newtags.Add(new Tag { Text = randtag });
+                    Tag randtag = randtaglist.ToArray()[i];
+                    newtags.Add(randtag);
                 }
                 return newtags;
             }
+
+            context.Tags.AddRange(InitTags);
+            context.SaveChanges();
 
             Picture[] InitPictures = new Picture[]
             {
                 new Picture{ ID=0, Title="cats lol", ImageURL="https://www.thiscatdoesnotexist.com", Tags=GetRandomTags()}
             };
 
-            foreach (var str in InitTags)
-            {
-                Tag tag = new Tag {Text = str};
-                context.Tags.Add(tag);
-            }
             context.Pictures.AddRange(InitPictures);
 
             context.SaveChanges();
