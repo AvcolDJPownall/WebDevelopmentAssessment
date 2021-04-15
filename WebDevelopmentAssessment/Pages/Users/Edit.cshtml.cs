@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -50,10 +48,8 @@ namespace WebDevelopmentAssessment.Pages.Users
                 return Page();
             }
 
-            // this is techincally useless, but i got bored
-            HashAlgorithm hashgen = SHA256.Create();
-            byte[] hbytes = hashgen.ComputeHash(Encoding.UTF8.GetBytes(User.PasswordHash));
-            User.PasswordHash = string.Join(string.Empty, hbytes.Select(hbytes => hbytes));
+            // not really used, but i hate the idea of storing passwords in plain text
+            User.PasswordHash = PasswordHashGenerator.GenerateHash(User.PasswordHash);
 
             if (User.ProfilePicture == null) User.ProfilePicture = "./img/user.png";
 
