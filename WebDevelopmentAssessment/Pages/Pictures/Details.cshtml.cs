@@ -20,6 +20,7 @@ namespace WebDevelopmentAssessment.Pages.Pictures
         }
 
         public Picture Picture { get; set; }
+        public Tag AssignedTag { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -28,16 +29,15 @@ namespace WebDevelopmentAssessment.Pages.Pictures
                 return NotFound();
             }
 
-            Picture = await _context.Pictures
-                .Include(pic => pic.Tags)
-                //TODO: use .ThenInclude() for the user object
-                .AsNoTracking()
-                .FirstOrDefaultAsync(m => m.ID == id);
+            Picture = await _context.Pictures.FirstOrDefaultAsync(m => m.PictureID == id);
 
             if (Picture == null)
             {
                 return NotFound();
             }
+
+            AssignedTag = await _context.Tags.FirstOrDefaultAsync(tag => tag.TagID == Picture.TagID);
+
             return Page();
         }
     }

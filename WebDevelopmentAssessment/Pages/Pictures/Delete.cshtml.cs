@@ -29,7 +29,7 @@ namespace WebDevelopmentAssessment.Pages.Pictures
                 return NotFound();
             }
 
-            Picture = await _context.Pictures.FirstOrDefaultAsync(m => m.ID == id);
+            Picture = await _context.Pictures.FirstOrDefaultAsync(m => m.PictureID == id);
 
             if (Picture == null)
             {

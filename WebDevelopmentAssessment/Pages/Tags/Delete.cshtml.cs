@@ -29,7 +29,7 @@ namespace WebDevelopmentAssessment.Pages.Tags
                 return NotFound();
             }
 
-            Tag = await _context.Tags.FirstOrDefaultAsync(m => m.ID == id);
+            Tag = await _context.Tags.FirstOrDefaultAsync(m => m.TagID == id);
 
             if (Tag == null)
             {

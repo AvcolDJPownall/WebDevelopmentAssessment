@@ -9,15 +9,14 @@ namespace WebDevelopmentAssessment.Models
 {
     public class Picture
     {
-        public int ID { get; set; }
+        public int PictureID { get; set; }
         [StringLength(30, MinimumLength = 5)]
         public string Title { get; set; }
         [Url]
         [StringLength(64)]
         [Required]
         public string ImageURL { get; set; }
-        public User Author { get; set; }
-        //[Required]
-        public ICollection<Tag> Tags { get; set; }
+        public int UserID { get; set; }
+        public int TagID { get; set; }
     }
 }

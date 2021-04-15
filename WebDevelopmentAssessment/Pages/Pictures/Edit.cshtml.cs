@@ -30,7 +30,7 @@ namespace WebDevelopmentAssessment.Pages.Pictures
                 return NotFound();
             }
 
-            Picture = await _context.Pictures.FirstOrDefaultAsync(m => m.ID == id);
+            Picture = await _context.Pictures.FirstOrDefaultAsync(m => m.PictureID == id);
 
             if (Picture == null)
             {
@@ -56,7 +56,7 @@ namespace WebDevelopmentAssessment.Pages.Pictures
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!PictureExists(Picture.ID))
+                if (!PictureExists(Picture.PictureID))
                 {
                     return NotFound();
                 }
@@ -71,7 +71,7 @@ namespace WebDevelopmentAssessment.Pages.Pictures
 
         private bool PictureExists(int id)
         {
-            return _context.Pictures.Any(e => e.ID == id);
+            return _context.Pictures.Any(e => e.PictureID == id);
         }
     }
 }

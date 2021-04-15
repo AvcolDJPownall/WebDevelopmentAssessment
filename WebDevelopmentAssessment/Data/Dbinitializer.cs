@@ -22,21 +22,12 @@ namespace WebDevelopmentAssessment.Data
                 new Tag{Text="Public Domain"}
             };
 
-            ICollection<Tag> GetRandomTags()
+            int GetRandomTagID()
             {
-
                 Random rng = new Random();
                 int tagnum = rng.Next(0, 3);
-
-                var newtags = new List<Tag>();
                 var randtaglist = context.Tags.ToList().OrderBy(rand => rng.Next());
-
-                for (int i = 0; i < tagnum; i++)
-                {
-                    Tag randtag = randtaglist.ToArray()[i];
-                    newtags.Add(randtag);
-                }
-                return newtags;
+                return randtaglist.First().TagID;
             }
 
             context.Tags.AddRange(InitTags);
@@ -44,7 +35,7 @@ namespace WebDevelopmentAssessment.Data
 
             Picture[] InitPictures = new Picture[]
             {
-                new Picture{ ID=0, Title="cats lol", ImageURL="https://www.thiscatdoesnotexist.com", Tags=GetRandomTags()}
+                new Picture{ PictureID=0, Title="cats lol", ImageURL="https://www.thiscatdoesnotexist.com", TagID=GetRandomTagID()}
             };
 
             context.Pictures.AddRange(InitPictures);

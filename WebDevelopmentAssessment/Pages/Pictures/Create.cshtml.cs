@@ -24,23 +24,26 @@ namespace WebDevelopmentAssessment.Pages.Pictures
         {
             //return Page();
             AllTags = await _context.Tags.ToListAsync();
-            SelectedTags = Enumerable.Empty<Tag>();
         }
 
         [BindProperty]
         public Picture Picture { get; set; }
         public IList<Tag> AllTags { get; set; }
-        public IEnumerable<Tag> SelectedTags { get; set; }
+        [BindProperty]
+        public int SelectedTagID { get; set; }
+        public MultiSelectList TagSelectionList { get; set; }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
+
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
-            Picture.Tags = Enumerable.Empty<Tag>().ToList();
+
+            Picture.TagID = SelectedTagID;
             _context.Pictures.Add(Picture);
             await _context.SaveChangesAsync();
 

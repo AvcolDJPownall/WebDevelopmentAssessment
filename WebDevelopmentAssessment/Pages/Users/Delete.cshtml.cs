@@ -29,7 +29,7 @@ namespace WebDevelopmentAssessment.Pages.Users
                 return NotFound();
             }
 
-            User = await _context.Users.FirstOrDefaultAsync(m => m.ID == id);
+            User = await _context.Users.FirstOrDefaultAsync(m => m.UserID == id);
 
             if (User == null)
             {
