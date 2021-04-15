@@ -18,17 +18,16 @@
                 <span asp-validation-for="Picture.Title" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Picture.ImageURL" class="control-label"></label>
+                <label class="control-label">Image URL</label>
                 <input asp-for="Picture.ImageURL" class="form-control" />
                 <span asp-validation-for="Picture.ImageURL" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <ul>
+                <label class="control-label">Tag</label>
                 @foreach (var item in Model.AllTags)
                 {
-                    <li><input type="radio" value="@item.TagID" asp-for="@Model.SelectedTagID" id="@item.TagID"/><label for="@item.TagID">@item.Text</label></li>
+                    <div><input type="radio" value="@item.TagID" asp-for="@Model.SelectedTagID" id="@item.TagID"/><label for="@item.TagID">@item.Text</label></div>
                 }
-                </ul>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
