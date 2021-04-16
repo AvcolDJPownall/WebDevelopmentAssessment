@@ -22,6 +22,15 @@ namespace WebDevelopmentAssessment.Data
                 new Tag{Text="Public Domain"}
             };
 
+            User[] InitUsers = new User[]
+            {
+                new User{UserName="Jim Cart", Email="jim@coolsite.com", ProfilePicture="https://thispersondoesnotexist.com/image", PasswordHash=PasswordHashGenerator.GenerateHash("password123")},
+                new User{UserName="Foo Bar", Email="foo@foobar.com", ProfilePicture="./img/user.png", PasswordHash=PasswordHashGenerator.GenerateHash("f00b@r")}
+            };
+
+            context.Users.AddRange(InitUsers);
+            context.SaveChanges();
+
             int GetRandomTagID()
             {
                 Random rng = new Random();
@@ -35,7 +44,7 @@ namespace WebDevelopmentAssessment.Data
 
             Picture[] InitPictures = new Picture[]
             {
-                new Picture{ PictureID=0, Title="cats lol", ImageURL="https://www.thiscatdoesnotexist.com", TagID=GetRandomTagID()}
+                new Picture{Title="cats lol", ImageURL="https://www.thiscatdoesnotexist.com", TagID=GetRandomTagID(), UserID=0}
             };
 
             context.Pictures.AddRange(InitPictures);

@@ -21,6 +21,8 @@ namespace WebDevelopmentAssessment.Pages.Pictures
 
         public Picture Picture { get; set; }
         public Tag AssignedTag { get; set; }
+        public User AssignedAuthor { get; set; }
+
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -37,6 +39,7 @@ namespace WebDevelopmentAssessment.Pages.Pictures
             }
 
             AssignedTag = await _context.Tags.FirstOrDefaultAsync(tag => tag.TagID == Picture.TagID);
+            AssignedAuthor = await _context.Users.FirstOrDefaultAsync(user => user.UserID == Picture.UserID);
 
             return Page();
         }

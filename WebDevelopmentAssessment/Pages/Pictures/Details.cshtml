@@ -16,6 +16,11 @@
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Picture.Title)
+        <dt class="col-sm-2">
+            <label class="control-label">Author</label>
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AssignedAuthor.UserName)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Picture.ImageURL)

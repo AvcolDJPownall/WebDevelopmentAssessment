@@ -24,13 +24,17 @@ namespace WebDevelopmentAssessment.Pages.Pictures
         {
             //return Page();
             AllTags = await _context.Tags.ToListAsync();
+            AllUsers = await _context.Users.ToListAsync();
         }
 
         [BindProperty]
         public Picture Picture { get; set; }
         public IList<Tag> AllTags { get; set; }
+        public IList<User> AllUsers { get; set; }
         [BindProperty]
         public int SelectedTagID { get; set; }
+        [BindProperty]
+        public int SelectedUserID { get; set; }
         public MultiSelectList TagSelectionList { get; set; }
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
@@ -44,6 +48,7 @@ namespace WebDevelopmentAssessment.Pages.Pictures
             }
 
             Picture.TagID = SelectedTagID;
+            Picture.UserID = SelectedUserID;
             _context.Pictures.Add(Picture);
             await _context.SaveChangesAsync();
 
