@@ -44,7 +44,8 @@ namespace WebDevelopmentAssessment.Data
 
             Picture[] InitPictures = new Picture[]
             {
-                new Picture{Title="cats lol", ImageURL="https://www.thiscatdoesnotexist.com", TagID=GetRandomTagID(), UserID=0}
+                new Picture{Title="cats lol", ImageURL="https://www.thiscatdoesnotexist.com", TagID=GetRandomTagID(), UserID=0},
+                new Picture{Title="my user icon", ImageURL="./img/user.png", TagID=GetRandomTagID(), UserID=1}
             };
 
             context.Pictures.AddRange(InitPictures);
