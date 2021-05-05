@@ -23,13 +23,13 @@
                 <span asp-validation-for="Picture.ImageURL" class="text-danger"></span>
             </div>
             <div class="sha-group">
-                <label class="control-label">Author</label>
+                <h3 class="control-label">Author</h3>
                 @foreach (var user in Model.AllUsers)
                 {
                     <div><input type="radio" value="@user.UserID" asp-for="@Model.SelectedUserID" id="@user.UserID" /><label for="@user.UserID">@user.UserName</label></div>
                 }
                 <div class="form-group">
-                    <label class="control-label">Tag</label>
+                    <h3 class="control-label">Tag</h3>
                     @foreach (var item in Model.AllTags)
                     {
                         <div><input type="radio" value="@item.TagID" asp-for="@Model.SelectedTagID" id="@item.TagID" /><label for="@item.TagID">@item.Text</label></div>
