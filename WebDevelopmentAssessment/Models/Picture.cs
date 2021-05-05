@@ -10,10 +10,10 @@ namespace WebDevelopmentAssessment.Models
     public class Picture
     {
         public int PictureID { get; set; }
-        [StringLength(30, MinimumLength = 5)]
+        [StringLength(80, MinimumLength = 2)]
         public string Title { get; set; }
         [Url]
-        [StringLength(64)]
+        [StringLength(128)]
         [Required]
         public string ImageURL { get; set; }
         public int UserID { get; set; }
